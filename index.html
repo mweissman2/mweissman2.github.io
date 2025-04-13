@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Max Weissman - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -78,7 +79,7 @@
       #typing-intro::after {
         content: '|';
         display: inline-block;
-        animation: blink 0.5s infinite;
+        animation: blink 0.7s infinite;
         opacity: 1;
         margin-left: 2px;
       }
@@ -120,7 +121,7 @@
                 Welcome to my portfolio! I'm a passionate robotics engineer building innovative solutions. My focus areas are in Computer Vision, Machine Learning, and Autonomy. Explore my projects below.
             </p>
             <a href="#projects" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition duration-200 shadow-md hover:shadow-lg inline-flex items-center" data-aos="fade-up" data-aos-delay="300">
-                View My Work <span class="lucide ml-2" aria-hidden="true">&#xe528;</span> </a>
+                View My Work <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i> </a>
         </div>
     </section>
 
@@ -175,14 +176,14 @@
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900" data-aos="fade-up">Get In Touch</h2>
             <p class="text-lg text-gray-600 max-w-xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100">
-                Interested in collaborating or have a question? Feel free to reach out!
+                Interested in collaborating or have a question? Please reach out!
             </p>
             <div class="flex justify-center space-x-6" data-aos="fade-up" data-aos-delay="200">
-                <a href="mailto:your-email@example.com" class="text-gray-600 hover:text-indigo-600 transition duration-200" title="Email">
+                <a href="mailto:maxweissman2@gmail.com" class="text-gray-600 hover:text-indigo-600 transition duration-200" title="Email">
                     <span class="lucide text-3xl">&#xe416;</span> </a>
                 <a href="https://github.com/mweissman2" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-indigo-600 transition duration-200" title="GitHub">
                     <span class="lucide text-3xl">&#xe3a4;</span> </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-indigo-600 transition duration-200" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/max-weissman-873305107/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-indigo-600 transition duration-200" title="LinkedIn">
                     <span class="lucide text-3xl">&#xe45b;</span> </a>
             </div>
         </div>
@@ -221,7 +222,7 @@
                 const text = typingElement.innerText;
                 typingElement.innerText = '';
                 let i = 0;
-                const speed = 50;
+                const speed = 70;
                 function typeWriter() {
                     if (i < text.length) {
                         typingElement.textContent += text.charAt(i);
@@ -297,6 +298,11 @@
 
         });
     </script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+  
 
 </body>
 </html>
