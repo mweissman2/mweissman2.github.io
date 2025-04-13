@@ -106,6 +106,7 @@
             <div class="space-x-4" data-aos="fade-down" data-aos-delay="100">
                 <a href="#about" class="text-gray-600 hover:text-indigo-600 transition duration-200 rounded px-2 py-1">About</a>
                 <a href="#projects" class="text-gray-600 hover:text-indigo-600 transition duration-200 rounded px-2 py-1">Projects</a>
+                <a href="#publications" class="text-gray-600 hover:text-indigo-600 transition duration-200 rounded px-2 py-1">Publications</a>
                 <a href="#contact" class="text-gray-600 hover:text-indigo-600 transition duration-200 rounded px-2 py-1">Contact</a>
             </div>
         </nav>
@@ -118,7 +119,7 @@
                 Max Weissman
             </h1>
             <p id="typing-intro" class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 min-h-[3em]" data-aos="fade-up" data-aos-delay="200">
-                Welcome to my portfolio! I'm a passionate robotics engineer building innovative solutions. My focus areas are in Computer Vision, Machine Learning, and Autonomy. Explore my projects below.
+                Welcome to my portfolio! I'm a passionate robotics engineer building innovative solutions. My focus areas are in Computer Vision, Machine Learning, and Autonomy!
             </p>
             <a href="#projects" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition duration-200 shadow-md hover:shadow-lg inline-flex items-center" data-aos="fade-up" data-aos-delay="300">
                 View My Work <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i> </a>
@@ -172,6 +173,29 @@
             </p>
         </div>
     </section>
+    <section id="publications" class="py-16 md:py-24 backdrop-blur-sm">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900" data-aos="fade-up">Publications</h2>
+          <ul class="max-w-3xl mx-auto space-y-6 text-gray-700 text-lg" data-aos="fade-up" data-aos-delay="100">
+            <li>
+                <strong>Synergistic Alpha-Led Force-Driven Gradient to address urgency and reliability in swarm intelligence path-planning</strong><br>
+                <em>Lecture Notes in Business Information Processing</em>, 2025<br>
+                <a href="https://example.com/uav-paper" class="text-indigo-600 hover:underline" target="_blank">Read the paper</a>
+            </li>
+            <li>
+                <strong>Swarm intelligence path-planning pipeline and algorithms for UAVs: Simulation, analysis and recommendation</strong><br>
+                <em>26th International Conference on Enterprise Information Systems (ICEIS)</em>, 2024<br>
+                <a href="https://doi.org/10.5220/0012686000003690" class="text-indigo-600 hover:underline" target="_blank">Read the paper</a>
+            </li>
+            <li>
+                <strong>Prioritized situation awareness for soccer robots using timed transition petri nets</strong><br>
+                <em>IEEE International Conference on Information Reuse and Integration (IRI)</em>, 2018<br>
+                <a href="https://doi.org/10.1109/iri.2018.00028" class="text-indigo-600 hover:underline" target="_blank">Read the paper</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+            
     <section id="contact" class="py-16 md:py-24 backdrop-blur-sm">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900" data-aos="fade-up">Get In Touch</h2>
@@ -222,7 +246,7 @@
                 const text = typingElement.innerText;
                 typingElement.innerText = '';
                 let i = 0;
-                const speed = 20;
+                const speed = 35;
                 function typeWriter() {
                     if (i < text.length) {
                         typingElement.textContent += text.charAt(i);
