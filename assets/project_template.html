@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Title - Max Weissman</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      /* --- Same CSS as index.html --- */
+      @font-face {
+        font-family: 'LucideIcons';
+        src: url('https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.ttf') format('truetype');
+        font-weight: normal; font-style: normal;
+      }
+      .lucide { font-family: 'LucideIcons'; font-size: 1.25rem; line-height: 1; display: inline-block; font-feature-settings: "liga"; }
+      body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1f2937; position: relative; overflow-x: hidden; margin: 0; min-height: 100vh; }
+      html { scroll-behavior: smooth; }
+      #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; background-color: #e2e8f0; }
+      #robot-canvas { position: fixed; top: 0; left: 0; z-index: 0; pointer-events: none; display: block; }
+      /* Ensure content stays above canvas and particles */
+      header, section, footer, .construction-banner { position: relative; z-index: 1; }
+      header { background-color: rgba(255, 255, 255, 0.8); }
+      /* Project content section background */
+      section#project-details { background-color: rgba(255, 255, 255, 0.9); } /* Slightly less transparent */
+      footer { background-color: #1f2937; }
+      .construction-banner { /* Tailwind handles background */ }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="particles-js"></div>
+    <canvas id="robot-canvas"></canvas>
+
+    <header class="backdrop-blur-sm shadow-sm sticky top-0 z-10">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-gray-800 hover:text-indigo-600 transition duration-200">
+                mweissman2
+            </a>
+            <div class="space-x-4">
+                <a href="index.html#about" class="text-gray-600 hover:text-indigo-600 transition duration-200 rounded px-2 py-1">About</a>
+                <a href="index.html#projects" class="text-gray-600 hover:text-indigo-600 transition duration-200 rounded px-2 py-1">Projects</a>
+                <a href="index.html#contact" class="text-gray-600 hover:text-indigo-600 transition duration-200 rounded px-2 py-1">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="construction-banner bg-yellow-300 text-yellow-800 py-2 text-center text-sm font-medium shadow-md">
+        🚧 Website Under Construction - More features coming soon! 🚧
+    </div>
+
+    <section id="project-details" class="py-16 md:py-24">
+        <div class="container mx-auto px-6 max-w-4xl"> <h1 class="text-3xl md:text-5xl font-bold mb-4 text-gray-900 text-center">
+                Project Title Goes Here
+            </h1>
+
+            <p class="text-lg md:text-xl text-gray-600 text-center mb-12">
+                A short summary or tagline for the project.
+            </p>
+
+            <div class="flex justify-center space-x-6 mb-12">
+                 <a href="#" target="_blank" rel="noopener noreferrer" class="bg-gray-700 hover:bg-gray-800 text-white font-medium py-2 px-5 rounded-lg transition duration-200 shadow-md hover:shadow-lg inline-flex items-center">
+                    <span class="lucide mr-2 text-base">&#xe3a4;</span> View on GitHub
+                </a>
+                </div>
+
+            <div class="mb-12 rounded-lg overflow-hidden shadow-lg">
+                <img src="https://placehold.co/1200x600/e0f2fe/0c4a6e?text=Project+Main+Image" alt="Project Main Visual" class="w-full h-auto">
+            </div>
+            <div class="prose prose-lg max-w-none text-gray-700"> <h2 class="text-2xl font-semibold text-gray-800 mb-3">About This Project</h2>
+                <p>
+                    Provide a detailed description of the project here. Explain the problem it solves, the goals, and the key features.
+                    You can use multiple paragraphs. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <p>
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </p>
+
+                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Technologies Used</h3>
+                <ul class="list-disc list-inside">
+                    <li>Technology 1 (e.g., Python)</li>
+                    <li>Technology 2 (e.g., ROS)</li>
+                    <li>Technology 3 (e.g., C++)</li>
+                    <li>Technology 4 (e.g., SolidWorks)</li>
+                    <li>Technology 5 (e.g., Arduino/ESP32)</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Challenges & Solutions</h3>
+                <p>
+                    Describe any significant challenges faced during the project and how you overcame them. This demonstrates problem-solving skills.
+                </p>
+
+                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Gallery</h3>
+                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                     <img src="https://placehold.co/600x400/dcfce7/166534?text=Screenshot+1" alt="Project Screenshot 1" class="rounded-lg shadow">
+                     <img src="https://placehold.co/600x400/fef9c3/713f12?text=Screenshot+2" alt="Project Screenshot 2" class="rounded-lg shadow">
+                     </div>
+
+            </div> <div class="text-center mt-16">
+                <a href="index.html#projects" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                    <span class="lucide mr-1 text-sm">&#xe0c3;</span> Back to Projects </a>
+            </div>
+
+        </div>
+    </section>
+    <footer class="py-6 bg-gray-800 text-gray-400 text-center text-sm">
+        <div class="container mx-auto px-6">
+            &copy; 2025 Max Weissman. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // --- Same JS for Particles and Robots ---
+        // (No Typing effect or AOS needed unless added specifically to this page)
+        document.addEventListener('DOMContentLoaded', function() {
+            // AOS.init({ duration: 800, once: true, offset: 50 }); // Uncomment if using AOS on this page
+
+            if (document.getElementById('particles-js')) {
+                particlesJS('particles-js', { /* Truncated config */ "particles": { "number": { "value": 60 }, "color": { "value": "#6366f1" }, "opacity": { "value": 0.4 }, "size": { "value": 2 }, "line_linked": { "enable": true, "distance": 150, "color": "#a5b4fc", "opacity": 0.3 }, "move": { "enable": true, "speed": 2 } }, "interactivity": { "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } }, "modes": { "repulse": { "distance": 80 }, "push": { "particles_nb": 4 } } }, "retina_detect": true });
+            } else { console.error('Particles.js container not found'); }
+
+            const canvas = document.getElementById('robot-canvas');
+            const ctx = canvas.getContext('2d');
+            let robots = []; const numberOfRobots = 15;
+            function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+            function Robot(x, y, dx, dy, size, color) { this.x = x; this.y = y; this.dx = dx; this.dy = dy; this.size = size; this.color = color; this.draw = function() { ctx.fillStyle = this.color; ctx.fillRect(this.x, this.y, this.size, this.size * 0.8); ctx.fillStyle = 'rgba(55, 65, 81, 0.8)'; ctx.fillRect(this.x + this.size * 0.3, this.y - this.size * 0.2, this.size * 0.4, this.size * 0.2); ctx.fillStyle = 'rgba(75, 85, 99, 0.8)'; ctx.fillRect(this.x, this.y + this.size * 0.8, this.size * 0.3, this.size * 0.2); ctx.fillRect(this.x + this.size * 0.7, this.y + this.size * 0.8, this.size * 0.3, this.size * 0.2); }; this.update = function() { if (this.x + this.size >= canvas.width || this.x <= 0) { this.dx = -this.dx; } if (this.y + this.size >= canvas.height || this.y <= 0) { this.dy = -this.dy; } this.x += this.dx; this.y += this.dy; if (this.x + this.size > canvas.width) this.x = canvas.width - this.size; if (this.x < 0) this.x = 0; if (this.y + this.size > canvas.height) this.y = canvas.height - this.size; if (this.y < 0) this.y = 0; this.draw(); }; }
+            function initRobots() { robots = []; const colors = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#0ea5e9', '#6366f1', '#a855f7']; for (let i = 0; i < numberOfRobots; i++) { const size = Math.random() * 15 + 10; const x = Math.random() * (canvas.width - size * 2) + size; const y = Math.random() * (canvas.height - size * 2) + size; const dx = (Math.random() - 0.5) * 2; const dy = (Math.random() - 0.5) * 2; const color = colors[Math.floor(Math.random() * colors.length)]; robots.push(new Robot(x, y, dx, dy, size, color)); } }
+            function animate() { requestAnimationFrame(animate); ctx.clearRect(0, 0, canvas.width, canvas.height); for (let i = 0; i < robots.length; i++) { robots[i].update(); } }
+            window.addEventListener('resize', () => { resizeCanvas(); initRobots(); });
+            if (canvas && ctx) { resizeCanvas(); initRobots(); animate(); } else { console.error("Robot canvas not found or context couldn't be created."); }
+        });
+    </script>
+
+</body>
+</html>
