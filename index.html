@@ -126,9 +126,22 @@
         color: #3730a3; /* Darker Indigo on hover */
       }
       /* Positioning the arrows */
-      .carousel-arrow.prev { left: -0.5rem; md:left: -1rem; } /* Adjust position slightly outside on larger screens */
-      .carousel-arrow.next { right: -0.5rem; md:right: -1rem; } /* Adjust position slightly outside on larger screens */
+      .carousel-arrow.prev {
+        left: -0.5rem;
+      }
+      .carousel-arrow.next {
+        right: -0.5rem;
+      }
 
+      /* Responsive adjustments for medium screens and up */
+      @media (min-width: 768px) {
+        .carousel-arrow.prev {
+          left: -1rem;
+        }
+        .carousel-arrow.next {
+          right: -1rem;
+        }
+      }
       .carousel-arrow.disabled {
         opacity: 0.3;
         cursor: not-allowed;
