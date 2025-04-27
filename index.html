@@ -55,6 +55,10 @@
        section#projects {
          background-color: rgba(249, 250, 251, 0.8); /* gray-50 with opacity */
        }
+      /* Specific background for publications */
+       section#publications {
+         background-color: rgba(248, 250, 252, 0.85); /* Slightly transparent gray-50 */
+       }
        footer {
          background-color: #1f2937; /* Solid dark footer */
        }
@@ -81,6 +85,83 @@
       .typing-done#typing-intro::after {
         display: none;
       }
+
+      /* Publications Carousel Styles */
+      .publication-carousel-container {
+        position: relative; /* Needed for absolute positioning of arrows */
+      }
+
+      .publication-carousel-wrapper {
+         overflow: hidden; /* This wrapper hides the non-visible slides */
+         width: 100%; /* Ensure wrapper takes full width */
+      }
+
+      .publication-carousel {
+        display: flex;
+        transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
+        width: 100%; /* Ensure track takes full width */
+      }
+
+      .publication-card {
+        flex: 0 0 100%; /* Each card takes full width of the container */
+        box-sizing: border-box; /* Include padding in width calculation */
+        /* Add padding inside the card's content div if needed, not here */
+      }
+
+      .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10; /* Ensure arrows are above cards */
+        cursor: pointer;
+        padding: 0.5rem; /* p-2 */
+        background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+        border-radius: 50%;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        color: #4f46e5; /* Indigo-600 for icon color */
+      }
+      .carousel-arrow:hover {
+        background-color: rgba(224, 231, 255, 0.9); /* Lighter indigo background on hover */
+        transform: translateY(-50%) scale(1.15); /* Scale up slightly more on hover */
+        color: #3730a3; /* Darker Indigo on hover */
+      }
+      /* Positioning the arrows */
+      .carousel-arrow.prev { left: -0.5rem; md:left: -1rem; } /* Adjust position slightly outside on larger screens */
+      .carousel-arrow.next { right: -0.5rem; md:right: -1rem; } /* Adjust position slightly outside on larger screens */
+
+      .carousel-arrow.disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+        pointer-events: none; /* Prevent clicking when disabled */
+        transform: translateY(-50%) scale(1); /* Reset scale when disabled */
+        background-color: rgba(209, 213, 219, 0.5); /* Lighter gray background when disabled */
+      }
+
+      .progress-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem; /* Space above dots */
+      }
+
+      .dot {
+        width: 0.75rem; /* 12px */
+        height: 0.75rem; /* 12px */
+        background-color: #d1d5db; /* Tailwind gray-300 */
+        border-radius: 50%;
+        margin: 0 0.375rem; /* 6px */
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform transition */
+      }
+
+      .dot:hover {
+          transform: scale(1.2); /* Slightly enlarge dot on hover */
+      }
+
+      .dot.active {
+        background-color: #4f46e5; /* Tailwind indigo-600 */
+        transform: scale(1.1); /* Slightly larger when active */
+      }
+
     </style>
 </head>
 <body class="antialiased">
@@ -189,57 +270,67 @@
             </p>
       </div>
     </section>
-    <section id="publications" class="py-16 md:py-24 backdrop-blur-sm">
-        <div class="container mx-auto px-6">
-          <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900" data-aos="fade-up">Publications</h2>
-      
-          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-            
-            <!-- Publication 1 -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform transform hover:scale-105" data-aos="fade-up" data-aos-delay="100">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                Synergistic Alpha-Led Force-Driven Gradient to address urgency and reliability in swarm intelligence path-planning
-              </h3>
-              <p class="text-gray-600 dark:text-gray-300 italic mb-2">
-                Lecture Notes in Business Information Processing, 2025
-              </p>
-              <a href="https://example.com/uav-paper" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium" target="_blank">
-                Read the paper
-                <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
-              </a>
-            </div>
-      
-            <!-- Publication 2 -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                Swarm intelligence path-planning pipeline and algorithms for UAVs: Simulation, analysis and recommendation
-              </h3>
-              <p class="text-gray-600 dark:text-gray-300 italic mb-2">
-                26th International Conference on Enterprise Information Systems (ICEIS), 2024
-              </p>
-              <a href="https://doi.org/10.5220/0012686000003690" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium" target="_blank">
-                Read the paper
-                <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
-              </a>
-            </div>
-      
-            <!-- Publication 3 -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform transform hover:scale-105" data-aos="fade-up" data-aos-delay="300">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                Prioritized situation awareness for soccer robots using timed transition petri nets
-              </h3>
-              <p class="text-gray-600 dark:text-gray-300 italic mb-2">
-                IEEE International Conference on Information Reuse and Integration (IRI), 2018
-              </p>
-              <a href="https://doi.org/10.1109/iri.2018.00028" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium" target="_blank">
-                Read the paper
-                <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
-              </a>
-            </div>
-      
+    <section id="publications" class="py-16 md:py-24">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900" data-aos="fade-up">Publications</h2>
+
+        <div class="publication-carousel-container max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+           <div class="publication-carousel-wrapper">
+              <div id="publicationCarousel" class="publication-carousel">
+
+                <div class="publication-card px-2"> <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8 mx-auto w-full h-full flex flex-col"> <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-2 leading-tight flex-grow"> Synergistic Alpha-Led Force-Driven Gradient to address urgency and reliability in swarm intelligence path-planning
+                    </h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-4">
+                      Lecture Notes in Business Information Processing, 2025
+                    </p>
+                    <a href="https://example.com/uav-paper" class="inline-flex items-center self-start text-indigo-600 hover:text-indigo-800 font-medium text-sm" target="_blank" rel="noopener noreferrer"> Read the paper
+                      <i data-lucide="external-link" class="w-4 h-4 ml-1"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="publication-card px-2">
+                  <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8 mx-auto w-full h-full flex flex-col">
+                    <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-2 leading-tight flex-grow">
+                      Swarm intelligence path-planning pipeline and algorithms for UAVs: Simulation, analysis and recommendation
+                    </h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-4">
+                      26th Int. Conf. on Enterprise Information Systems (ICEIS), 2024
+                    </p>
+                    <a href="https://doi.org/10.5220/0012686000003690" class="inline-flex items-center self-start text-indigo-600 hover:text-indigo-800 font-medium text-sm" target="_blank" rel="noopener noreferrer">
+                      Read the paper
+                      <i data-lucide="external-link" class="w-4 h-4 ml-1"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="publication-card px-2">
+                  <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8 mx-auto w-full h-full flex flex-col">
+                    <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-2 leading-tight flex-grow">
+                      Prioritized situation awareness for soccer robots using timed transition petri nets
+                    </h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-4">
+                      IEEE Int. Conf. on Information Reuse and Integration (IRI), 2018
+                    </p>
+                    <a href="https://doi.org/10.1109/iri.2018.00028" class="inline-flex items-center self-start text-indigo-600 hover:text-indigo-800 font-medium text-sm" target="_blank" rel="noopener noreferrer">
+                      Read the paper
+                      <i data-lucide="external-link" class="w-4 h-4 ml-1"></i>
+                    </a>
+                  </div>
+                </div>
+
+                </div> </div> <button id="prevPublication" class="carousel-arrow prev" aria-label="Previous publication">
+            <i data-lucide="chevron-left" class="w-6 h-6"></i>
+          </button>
+          <button id="nextPublication" class="carousel-arrow next" aria-label="Next publication">
+            <i data-lucide="chevron-right" class="w-6 h-6"></i>
+          </button>
+
+        </div> <div id="publicationDots" class="progress-dots">
           </div>
-        </div>
-      </section>
+
+      </div>
+    </section>
       
 
     <section id="contact" class="py-16 md:py-24 backdrop-blur-sm">
@@ -367,6 +458,126 @@
             else { console.error("Robot canvas not found or context couldn't be created."); }
 
         });
+
+            // --- Publications Carousel Logic ---
+            const carouselContainer = document.querySelector('.publication-carousel-container'); // Use the main container
+            const carouselWrapper = document.querySelector('.publication-carousel-wrapper'); // Wrapper for overflow
+            const carousel = document.getElementById('publicationCarousel'); // The track with slides
+            const prevButton = document.getElementById('prevPublication');
+            const nextButton = document.getElementById('nextPublication');
+            const dotsContainer = document.getElementById('publicationDots');
+
+            // Check if all necessary elements exist
+            if (carousel && prevButton && nextButton && dotsContainer && carouselWrapper && carouselContainer) {
+                const publications = carousel.querySelectorAll('.publication-card');
+                const totalPublications = publications.length;
+                let currentIndex = 0;
+
+                // --- Create Progress Dots ---
+                function createDots() {
+                    dotsContainer.innerHTML = ''; // Clear existing dots
+                    if (totalPublications <= 1) {
+                        dotsContainer.style.display = 'none'; // Hide dots if only one item
+                        return;
+                    }
+                    dotsContainer.style.display = 'flex'; // Ensure it's visible otherwise
+                    for (let i = 0; i < totalPublications; i++) {
+                        const dot = document.createElement('button');
+                        dot.classList.add('dot');
+                        dot.setAttribute('aria-label', `Go to publication ${i + 1}`);
+                        // Add click event listener to navigate to the specific publication
+                        dot.addEventListener('click', () => goToPublication(i));
+                        dotsContainer.appendChild(dot);
+                    }
+                }
+
+                // --- Update Carousel Display ---
+                function updateCarousel(instant = false) { // Add instant flag for resize/init
+                    if (totalPublications === 0) return; // Do nothing if no publications
+
+                    // Calculate the offset to center the current slide
+                    const offset = -currentIndex * 100;
+
+                    // Apply transition only if not instant
+                    carousel.style.transition = instant ? 'none' : 'transform 0.5s ease-in-out';
+                    // Apply the translation to move the slides
+                    carousel.style.transform = `translateX(${offset}%)`;
+
+                    // Update active dot
+                    const dots = dotsContainer.querySelectorAll('.dot');
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentIndex);
+                    });
+
+                    // Update arrow button states (disable if at ends)
+                    prevButton.classList.toggle('disabled', currentIndex === 0 || totalPublications <= 1);
+                    nextButton.classList.toggle('disabled', currentIndex === totalPublications - 1 || totalPublications <= 1);
+
+                    // Hide arrows if only one publication
+                    prevButton.style.display = totalPublications <= 1 ? 'none' : 'block';
+                    nextButton.style.display = totalPublications <= 1 ? 'none' : 'block';
+
+                    // Optional: Add active class to the current card for potential styling
+                    publications.forEach((pub, index) => {
+                        pub.classList.toggle('active', index === currentIndex);
+                        // Improve accessibility: hide non-visible slides from screen readers
+                        pub.setAttribute('aria-hidden', index !== currentIndex);
+                        // Make links inside non-active slides non-focusable
+                        const links = pub.querySelectorAll('a, button'); // Include buttons if any
+                        links.forEach(link => link.tabIndex = (index === currentIndex ? 0 : -1));
+                    });
+                }
+
+                // --- Go to Specific Publication ---
+                function goToPublication(index) {
+                    // Check if the index is valid
+                    if (index >= 0 && index < totalPublications) {
+                        currentIndex = index;
+                        updateCarousel(); // Update display with transition
+                    }
+                }
+
+                // --- Event Listeners ---
+                prevButton.addEventListener('click', () => {
+                    // Go to the previous slide if not already at the first one
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarousel();
+                    }
+                });
+
+                nextButton.addEventListener('click', () => {
+                    // Go to the next slide if not already at the last one
+                    if (currentIndex < totalPublications - 1) {
+                        currentIndex++;
+                        updateCarousel();
+                    }
+                });
+
+                // --- Initialization ---
+                if (totalPublications > 0) {
+                    createDots(); // Create the dots
+                    updateCarousel(true); // Set initial state instantly without transition
+                } else {
+                    // Explicitly hide controls if there are no publications
+                    prevButton.style.display = 'none';
+                    nextButton.style.display = 'none';
+                    dotsContainer.style.display = 'none';
+                    console.log("No publications found for carousel.");
+                }
+
+                // --- Optional: Recalculate on Resize ---
+                // If layout changes significantly on resize, you might need this
+                // window.addEventListener('resize', debounce(() => {
+                //    updateCarousel(true); // Update instantly on resize
+                // }, 250));
+
+
+            } else {
+                // Log an error if any crucial element is missing
+                console.error("Publication carousel elements not found. Carousel functionality disabled. Check IDs/Classes: #publicationCarousel, #prevPublication, #nextPublication, #publicationDots, .publication-carousel-wrapper, .publication-carousel-container");
+            }
+
     </script>
 
     <script>
